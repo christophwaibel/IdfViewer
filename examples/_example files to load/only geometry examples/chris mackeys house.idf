@@ -1,0 +1,6884 @@
+
+Version, 8.1;
+
+Timestep, 6;
+
+ShadowCalculation,
+	AverageOverDaysInFrequency,        !- Calculation Method
+	30,        !- Calculation Frequency
+	3000;    !- Maximum Figures in Shadow Overlap Calculation
+
+ProgramControl,
+	10; !- Number of Threads AllowedNumber
+
+Building,
+	unnamed.idf, !- Name
+	0.0, !- North Axis {deg}
+	City, !- Terrain
+	0.040000000000000001, !- Loads Convergence Tolerance Value
+	0.40000000000000002, !- Temperature Convergence Tolerance Value {deltaC}
+	FullInteriorAndExteriorWithReflections, !- Solar Distribution or maybe FullExterior
+	25, !- Maximum Number of Warmup Days
+	6; !- Minimum Number of Warmup Days
+
+HeatBalanceAlgorithm, ConductionTransferFunction;
+
+SurfaceConvectionAlgorithm:Inside, TARP;
+
+SurfaceConvectionAlgorithm:Outside, DOE-2;
+
+Site:Location,
+	New York J F Kennedy IntL Ar	USA,
+	40.65,    !Latitude
+	-73.80,   !Longitude
+	-5.0, !Time Zone
+	5.0;   !Elevation
+
+SizingPeriod:WeatherFileConditionType,
+	ExtremeSizingWinterExtreme,
+	WinterExtreme,    !Period Selection
+	Monday,   !Day of Week for Start Day
+	Yes, !Use Weather File Daylight Davings Period
+	Yes;   !Use WeatherFile Rain and Snow Indicators
+
+SizingPeriod:WeatherFileConditionType,
+	ExtremeSizingSummerExtreme,
+	SummerExtreme,    !Period Selection
+	Monday,   !Day of Week for Start Day
+	Yes, !Use Weather File Daylight Davings Period
+	Yes;   !Use WeatherFile Rain and Snow Indicators
+
+SimulationControl,
+	Yes,    !- Do Zone Sizing Calculation
+	Yes,  !- Do System Sizing Calculation
+	Yes,   !- Do Plant Sizing Calculation
+	No,  !- Run Simulation for Sizing Periods
+	Yes; !- Run Simulation for Weather File Run Periods
+
+RunPeriod,
+	customRun,    !- Name
+	1,   !- Begin Month
+	1,    !- Begin Day of Month
+	1, !- End Month
+	31,   !- End Day of Month
+	UseWeatherFile,   !- Day of Week for Start Day
+	Yes,              !- Use Weather File Holidays and Special Days
+	Yes,              !- Use Weather File Daylight Saving Period
+	No,               !- Apply Weekend Holiday Rule
+	Yes,              !- Use Weather File Rain Indicators
+	Yes;              !- Use Weather File Snow Indicators
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 6,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 47,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 27,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 37,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 17,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 10,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 44,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 54,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 24,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 5,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ON/OFF,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  1,   !- - Upper Limit Value {BasedOnField A3}
+  DISCRETE;   !- - Numeric Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 14,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 34,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 45,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 55,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 25,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 12,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 35,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 15,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 42,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 7,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 8,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 22,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 32,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 12,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 52,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 14,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 43,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 53,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 23,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 11,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 2,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  FRACTIONAL,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  1,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous;   !- - Numeric Type
+
+ScheduleTypeLimits,
+  FRACTION,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  1,   !- - Upper Limit Value {BasedOnField A3}
+  CONTINUOUS;   !- - Numeric Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 13,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 2,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 1,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 3,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 33,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 4,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 48,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 5,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 40,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 38,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 20,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 18,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 30,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 10,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 50,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 6,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 7,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 13,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 1,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 8,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 9,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 49,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 59,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 29,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 9,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 4,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 19,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 21,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 11,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 31,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 41,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 51,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 15,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 46,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 56,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 26,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 36,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+ScheduleTypeLimits,
+  ACTIVITYLEVEL 3,   !- name
+  0,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  activitylevel;   !- - Unit Type
+
+ScheduleTypeLimits,
+  TEMPERATURE 16,   !- name
+  ,   !- - Lower Limit Value {BasedOnField A3}
+  ,   !- - Upper Limit Value {BasedOnField A3}
+  Continuous,   !- - Numeric Type
+  temperature;   !- - Unit Type
+
+
+GlobalGeometryRules,
+	LowerLeftCorner,         !- Starting Vertex Position
+	CounterClockWise,        !- Vertex Entry Direction
+	Absolute;                !- Coordinate System
+
+Zone,
+	zone_0,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_0_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.595067977905273,
+	22.643783569335938,
+	7.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.5,
+	10.595067977905273,
+	22.643783569335938,
+	7.5;
+
+
+FenestrationSurface:Detailed,
+	zone_0_Srf_0_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_0_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.556107521057129,
+	22.382932662963867,
+	7.153175354003906,
+	10.506853103637695,
+	22.053153991699219,
+	7.153175354003906,
+	10.506853103637695,
+	22.053153991699219,
+	7.346824645996094,
+	10.556107521057129,
+	22.382932662963867,
+	7.346824645996094;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	7.0,
+	10.595067977905273,
+	22.643783569335938,
+	7.0,
+	10.595067977905273,
+	22.643783569335938,
+	7.5,
+	11.230944633483887,
+	26.901189804077148,
+	10.0;
+
+
+FenestrationSurface:Detailed,
+	zone_0_Srf_1_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_0_Srf_1,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	11.5323,
+	28.9190,
+	7.61989,
+	10.9905,
+	25.2915,
+	7.61989,
+	10.9905,
+	25.2915,
+	7.81354;
+
+
+FenestrationSurface:Detailed,
+	zone_0_Srf_1_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_0_Srf_1,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	10.9905,
+	25.2915,
+	7.81354,
+	11.2368,
+	26.9404,
+	8.78179,
+	11.5323,
+	28.9190,
+	7.61989;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_2,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	12.455266952514648,
+	21.495473861694336,
+	8.5,
+	14.442641258239746,
+	21.198642730712891,
+	7.5,
+	14.569816589355469,
+	22.050125122070312,
+	7.5,
+	12.836792945861816,
+	24.049917221069336,
+	8.5;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_1_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.5,
+	12.455266952514648,
+	21.495473861694336,
+	8.5,
+	10.467892646789551,
+	21.792303085327148,
+	7.5;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_4,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	7.5,
+	12.455266952514648,
+	21.495473861694336,
+	8.5,
+	12.836792945861816,
+	24.049917221069336,
+	8.5,
+	10.595067977905273,
+	22.643783569335938,
+	7.5;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	3,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.569816589355469,
+	22.050125122070312,
+	7.5,
+	14.442641258239746,
+	21.198642730712891,
+	7.5;
+
+
+FenestrationSurface:Detailed,
+	zone_0_Srf_5_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_0_Srf_5,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	14.46861457824707,
+	21.37254524230957,
+	7.2042341232299805,
+	14.51786994934082,
+	21.702322006225586,
+	7.39788293838501,
+	14.46861457824707,
+	21.37254524230957,
+	7.39788293838501;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_6,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	8,	!- Number of Vertices
+	11.230944633483887,
+	26.901189804077148,
+	10.0,
+	18.154150009155273,
+	25.867155075073242,
+	10.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.569816589355469,
+	22.050125122070312,
+	7.5,
+	12.836792945861816,
+	24.049917221069336,
+	8.5,
+	10.595067977905273,
+	22.643783569335938,
+	7.5,
+	10.658656120300293,
+	23.069524765014648,
+	7.75;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_7,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.154150009155273,
+	25.867155075073242,
+	10.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0,
+	11.993996620178223,
+	32.010078430175781,
+	7.0,
+	11.230944633483887,
+	26.901189804077148,
+	10.0;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_8,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_0,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	3,	!- Number of Vertices
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0,
+	18.154150009155273,
+	25.867155075073242,
+	10.0;
+
+
+FenestrationSurface:Detailed,
+	zone_0_Srf_8_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_0_Srf_8,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	17.858621597290039,
+	23.888492584228516,
+	7.612701892852783,
+	18.449678421020508,
+	27.8458194732666,
+	7.612701892852783,
+	18.154150009155273,
+	25.867155075073242,
+	8.774596214294434;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_9,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_14_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_10,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_7_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	7.0,
+	11.993996620178223,
+	32.010078430175781,
+	7.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_11,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_12,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_6_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_0_Srf_13,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_0,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_8_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	7.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0;
+
+
+Zone,
+	zone_1,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_1_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	6,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	14.06856632232666,
+	18.6940860748291,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.5,
+	13.710273742675781,
+	16.295198440551758,
+	7.5,
+	13.710273742675781,
+	16.295198440551758,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_1_Srf_0_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_1_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	13.820036888122559,
+	17.030099868774414,
+	5.072227954864502,
+	13.958803176879883,
+	17.959184646606445,
+	5.072227954864502,
+	13.958803176879883,
+	17.959184646606445,
+	6.427772045135498,
+	13.820036888122559,
+	17.030099868774414,
+	6.427772045135498;
+
+
+FenestrationSurface:Detailed,
+	zone_1_Srf_0_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_1_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	14.183164596557617,
+	19.461359024047852,
+	7.153175354003906,
+	14.328042984008789,
+	20.431369781494141,
+	7.153175354003906,
+	14.328042984008789,
+	20.431369781494141,
+	7.346824645996094,
+	14.183164596557617,
+	19.461359024047852,
+	7.346824645996094;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_5_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.06856632232666,
+	18.6940860748291,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.5,
+	12.455266952514648,
+	21.495473861694336,
+	8.5,
+	14.442641258239746,
+	21.198642730712891,
+	7.5;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_3,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_1,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.722899436950684,
+	16.592029571533203,
+	8.5,
+	13.710273742675781,
+	16.295198440551758,
+	7.5,
+	14.442641258239746,
+	21.198642730712891,
+	7.5,
+	12.455266952514648,
+	21.495473861694336,
+	8.5;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_4,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_1,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	7.5,
+	11.722899436950684,
+	16.592029571533203,
+	8.5,
+	12.455266952514648,
+	21.495473861694336,
+	8.5,
+	10.467892646789551,
+	21.792303085327148,
+	7.5;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	9.735526084899902,
+	16.888858795166016,
+	4.0,
+	9.735526084899902,
+	16.888858795166016,
+	7.5,
+	10.467892646789551,
+	21.792303085327148,
+	7.5;
+
+
+FenestrationSurface:Detailed,
+	zone_1_Srf_5_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_1_Srf_5,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.243531227111816,
+	20.290128707885742,
+	5.072227954864502,
+	9.95988655090332,
+	18.391033172607422,
+	5.072227954864502,
+	9.95988655090332,
+	18.391033172607422,
+	6.427772045135498,
+	10.243531227111816,
+	20.290128707885742,
+	6.427772045135498;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_6,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_1,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_12_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	13.710273742675781,
+	16.295198440551758,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_7,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_6_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_1_Srf_8,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_1,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	4.0,
+	13.710273742675781,
+	16.295198440551758,
+	4.0,
+	13.710273742675781,
+	16.295198440551758,
+	7.5,
+	11.722899436950684,
+	16.592029571533203,
+	8.5,
+	9.735526084899902,
+	16.888858795166016,
+	7.5;
+
+
+FenestrationSurface:Detailed,
+	zone_1_Srf_8_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_1_Srf_8,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.183485984802246,
+	16.821952819824219,
+	4.394455909729004,
+	13.262312889099121,
+	16.362106323242188,
+	4.394455909729004,
+	13.262312889099121,
+	16.362106323242188,
+	7.105544090270996,
+	10.183485984802246,
+	16.821952819824219,
+	7.105544090270996;
+
+
+FenestrationSurface:Detailed,
+	zone_1_Srf_8_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_1_Srf_8,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	10.183485984802246,
+	16.821952819824219,
+	7.57513427734375,
+	13.262312889099121,
+	16.362106323242188,
+	7.57513427734375,
+	11.722899436950684,
+	16.592029571533203,
+	8.3497314453125;
+
+
+Zone,
+	zone_2,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_2_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_2,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	11.232366561889648,
+	26.910709381103516,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_2_Srf_0_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_2_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	10.7021,
+	23.3603,
+	1.22541,
+	10.7021,
+	23.3603,
+	2.77461,
+	10.9982,
+	25.3426,
+	2.77461;
+
+
+FenestrationSurface:Detailed,
+	zone_2_Srf_0_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_2_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	10.7021,
+	23.3603,
+	1.22541,
+	10.9982,
+	25.3426,
+	2.77461,
+	10.9981,
+	25.3425,
+	1.22541;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_1,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0,
+	14.693931579589844,
+	26.3934383392334,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_2,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_8_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.693931579589844,
+	26.3934383392334,
+	4.0,
+	11.232404708862305,
+	26.910961151123047,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_3,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_6_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_12_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_7,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_6,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_3_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_7,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_2,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_2_Srf_8,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_2,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_11,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.207079887390137,
+	26.316814422607422,
+	0.0,
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	11.232328414916992,
+	26.910455703735352,
+	4.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0;
+
+
+Zone,
+	zone_3,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_3_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.066350936889648,
+	24.903619766235352,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_3,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_3,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.04118537902832,
+	25.206094741821289,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_4,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.04118537902832,
+	25.206094741821289,
+	4.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	16.812156677246094,
+	23.20170783996582,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0,
+	16.812156677246094,
+	23.20170783996582,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_6,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	16.812156677246094,
+	23.20170783996582,
+	0.0,
+	16.812156677246094,
+	23.20170783996582,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_7,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_3,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	15.04118537902832,
+	25.206094741821289,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	0.0,
+	16.812156677246094,
+	23.20170783996582,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_3_Srf_8,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_3,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	16.812156677246094,
+	23.20170783996582,
+	4.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0,
+	15.04118537902832,
+	25.206094741821289,
+	4.0;
+
+
+Zone,
+	zone_4,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_4_Srf_0,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_4,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	6,	!- Number of Vertices
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_3_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	3,	!- Number of Vertices
+	18.917201995849609,
+	30.976041793823242,
+	3.0,
+	15.455598831176758,
+	31.493059158325195,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_4_Srf_2_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_4_Srf_2,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	18.210226058959961,
+	31.081634521484375,
+	3.4084677696228027,
+	16.869552612304688,
+	31.281875610351562,
+	3.7957661151885986,
+	18.210226058959961,
+	31.081634521484375,
+	3.7957661151885986;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	3,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	3.0,
+	11.993996620178223,
+	32.010078430175781,
+	4.0,
+	15.455598831176758,
+	31.493059158325195,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_4_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_4_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	12.700973510742188,
+	31.904483795166016,
+	3.4084677696228027,
+	12.700973510742188,
+	31.904483795166016,
+	3.7957661151885986,
+	14.041646003723145,
+	31.704244613647461,
+	3.7957661151885986;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_6,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_4_Srf_6_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_4_Srf_6,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	18.507341384887695,
+	28.231884002685547,
+	1.2254033088684082,
+	18.736186981201172,
+	29.764081954956055,
+	1.2254033088684082,
+	18.736186981201172,
+	29.764081954956055,
+	2.774596691131592,
+	18.507341384887695,
+	28.231884002685547,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_7,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	11.232328414916992,
+	26.910455703735352,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_4_Srf_7_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_4_Srf_7,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	11.760659217834473,
+	30.447803497314453,
+	1.2254033088684082,
+	11.465666770935059,
+	28.472728729248047,
+	1.2254033088684082,
+	11.465666770935059,
+	28.472728729248047,
+	2.774596691131592,
+	11.760659217834473,
+	30.447803497314453,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_8,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_13_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	18.917201995849609,
+	30.976041793823242,
+	0.0,
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	11.993996620178223,
+	32.010078430175781,
+	3.0,
+	15.455598831176758,
+	31.493059158325195,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	3.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_9,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_7_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_10,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.232328414916992,
+	26.910455703735352,
+	4.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_4_Srf_11,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_4,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_8,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.232328414916992,
+	26.910455703735352,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	0.0,
+	15.207077026367188,
+	26.316795349121094,
+	4.0,
+	11.232328414916992,
+	26.910455703735352,
+	4.0;
+
+
+Zone,
+	zone_5,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_5_Srf_0,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_5,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	7.0,
+	17.017023086547852,
+	18.25370979309082,
+	7.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_5_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_5,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_1_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	14.06856632232666,
+	18.6940860748291,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_5_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_5,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_14_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_5_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_5,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.017023086547852,
+	18.25370979309082,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	17.017023086547852,
+	18.25370979309082,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_5_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_5_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.131622314453125,
+	19.020984649658203,
+	4.919052600860596,
+	17.276500701904297,
+	19.990995407104492,
+	4.919052600860596,
+	17.276500701904297,
+	19.990995407104492,
+	6.080947399139404,
+	17.131622314453125,
+	19.020984649658203,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_5_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_5,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	17.017023086547852,
+	18.25370979309082,
+	4.0,
+	17.017023086547852,
+	18.25370979309082,
+	7.0,
+	14.06856632232666,
+	18.6940860748291,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_5_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_5_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	14.400862693786621,
+	18.644454956054688,
+	4.338105201721191,
+	16.684726715087891,
+	18.303340911865234,
+	4.338105201721191,
+	16.684726715087891,
+	18.303340911865234,
+	6.661894798278809,
+	14.400862693786621,
+	18.644454956054688,
+	6.661894798278809;
+
+
+BuildingSurface:Detailed,
+	zone_5_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_5,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	17.017023086547852,
+	18.25370979309082,
+	4.0;
+
+
+Zone,
+	zone_6,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_6_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_8_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_14_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_1_Srf_7,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_6,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_6_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_6_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.706750869750977,
+	23.391538619995117,
+	4.919052600860596,
+	10.573385238647461,
+	22.498605728149414,
+	4.919052600860596,
+	10.573385238647461,
+	22.498605728149414,
+	6.080947399139404,
+	10.706750869750977,
+	23.391538619995117,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_6_Srf_6,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_6,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_12,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0;
+
+
+Zone,
+	zone_7,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_7_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_7,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_8_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_7,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_7,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.917201995849609,
+	30.976041793823242,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	7.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_7_Srf_2_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_7_Srf_2,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	16.796272277832031,
+	31.292819976806641,
+	4.919052600860596,
+	14.1149263381958,
+	31.693300247192383,
+	4.919052600860596,
+	14.1149263381958,
+	31.693300247192383,
+	6.080947399139404,
+	16.796272277832031,
+	31.292819976806641,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_7,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_7_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_7_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	18.507341384887695,
+	28.231884002685547,
+	4.919052600860596,
+	18.736186981201172,
+	29.764081954956055,
+	4.919052600860596,
+	18.736186981201172,
+	29.764081954956055,
+	6.080947399139404,
+	18.507341384887695,
+	28.231884002685547,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_7,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0,
+	11.993996620178223,
+	32.010078430175781,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_7_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_7_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	11.812980651855469,
+	30.798116683959961,
+	4.919052600860596,
+	11.584135055541992,
+	29.265918731689453,
+	4.919052600860596,
+	11.584135055541992,
+	29.265918731689453,
+	6.080947399139404,
+	11.812980651855469,
+	30.798116683959961,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_7,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_9,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_7_Srf_6,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_7,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_10,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0,
+	18.917201995849609,
+	30.976041793823242,
+	7.0,
+	11.993996620178223,
+	32.010078430175781,
+	7.0;
+
+
+Zone,
+	zone_8,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_8_Srf_0,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	11.232404708862305,
+	26.910961151123047,
+	4.0,
+	14.693980216979981,
+	26.393768310546875,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_1,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_10,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.232404708862305,
+	26.910961151123047,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	14.693980216979981,
+	26.393768310546875,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_7_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_6_Srf_0,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_8,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.403120040893555,
+	28.053958892822266,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	4.0,
+	10.812243461608887,
+	24.097841262817383,
+	7.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_8_Srf_5_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_8_Srf_5,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	11.103687286376953,
+	26.049160003662109,
+	4.919052600860596,
+	10.940959930419922,
+	24.959644317626953,
+	4.919052600860596,
+	10.940959930419922,
+	24.959644317626953,
+	6.080947399139404,
+	11.103687286376953,
+	26.049160003662109,
+	6.080947399139404;
+
+
+FenestrationSurface:Detailed,
+	zone_8_Srf_5_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_8_Srf_5,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	11.350820541381836,
+	27.703800201416016,
+	4.919052600860596,
+	11.284703254699707,
+	27.261119842529297,
+	4.919052600860596,
+	11.284703254699707,
+	27.261119842529297,
+	6.080947399139404,
+	11.350820541381836,
+	27.703800201416016,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_8_Srf_6,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_8,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_13,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.812243461608887,
+	24.097841262817383,
+	7.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	11.403120040893555,
+	28.053958892822266,
+	7.0;
+
+
+Zone,
+	zone_9,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_9_Srf_0,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.693980216979981,
+	26.393768310546875,
+	4.0,
+	15.207122802734375,
+	26.317100524902344,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_1,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_7,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	6,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	15.207122802734375,
+	26.317100524902344,
+	4.0,
+	14.693980216979981,
+	26.393768310546875,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_7_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_9,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_9_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_9_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.916463851928711,
+	24.275768280029297,
+	4.919052600860596,
+	18.145309448242188,
+	25.807964324951172,
+	4.919052600860596,
+	18.145309448242188,
+	25.807964324951172,
+	6.080947399139404,
+	17.916463851928711,
+	24.275768280029297,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_14_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_8_Srf_3,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.86472225189209,
+	27.536941528320312,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	4.0,
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_9_Srf_6,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_9,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_11,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.273845672607422,
+	23.58082389831543,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0,
+	18.326324462890625,
+	27.019924163818359,
+	7.0,
+	14.86472225189209,
+	27.536941528320312,
+	7.0;
+
+
+Zone,
+	zone_10,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_10_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_3_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	0.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_3_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.066350936889648,
+	24.903619766235352,
+	0.0,
+	16.812156677246094,
+	23.20170783996582,
+	0.0,
+	16.812156677246094,
+	23.20170783996582,
+	4.0,
+	17.066350936889648,
+	24.903619766235352,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	0.0,
+	17.232242584228516,
+	26.014322280883789,
+	4.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.735448837280273,
+	23.063808441162109,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_10_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_10_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.916463851928711,
+	24.275768280029297,
+	1.2254033088684082,
+	18.145309448242188,
+	25.807964324951172,
+	1.2254033088684082,
+	18.145309448242188,
+	25.807964324951172,
+	2.774596691131592,
+	17.916463851928711,
+	24.275768280029297,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	16.812156677246094,
+	23.20170783996582,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	16.812156677246094,
+	23.20170783996582,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_6,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_10,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	16.812156677246094,
+	23.20170783996582,
+	0.0,
+	17.403034210205078,
+	27.157825469970703,
+	0.0,
+	18.326324462890625,
+	27.019924163818359,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_10_Srf_7,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_10,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	16.812156677246094,
+	23.20170783996582,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	18.326324462890625,
+	27.019924163818359,
+	4.0,
+	17.403034210205078,
+	27.157825469970703,
+	4.0;
+
+
+Zone,
+	zone_11,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_11_Srf_0,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_11,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_5_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	17.017023086547852,
+	18.25370979309082,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_1,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_11,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_14_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_11,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_10_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.735448837280273,
+	23.063808441162109,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_11,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.017023086547852,
+	18.25370979309082,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	17.017023086547852,
+	18.25370979309082,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_11_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_11_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.237113952636719,
+	19.727287292480469,
+	1.2254033088684082,
+	17.515357971191406,
+	21.590230941772461,
+	1.2254033088684082,
+	17.515357971191406,
+	21.590230941772461,
+	2.774596691131592,
+	17.237113952636719,
+	19.727287292480469,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_11,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	0.0,
+	17.017023086547852,
+	18.25370979309082,
+	0.0,
+	17.017023086547852,
+	18.25370979309082,
+	4.0,
+	14.06856632232666,
+	18.6940860748291,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_11_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_11_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	14.400862693786621,
+	18.644454956054688,
+	0.45080664753913879,
+	16.684726715087891,
+	18.303340911865234,
+	0.45080664753913879,
+	16.684726715087891,
+	18.303340911865234,
+	3.5491933822631836,
+	14.400862693786621,
+	18.644454956054688,
+	3.5491933822631836;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_11,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	0.0,
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	17.735448837280273,
+	23.063808441162109,
+	0.0,
+	17.017023086547852,
+	18.25370979309082,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_6,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_11,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_12_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	14.06856632232666,
+	18.6940860748291,
+	0.0,
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_11_Srf_7,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_11,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_5,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0;
+
+
+Zone,
+	zone_12,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_12_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_12,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	13.710273742675781,
+	16.295198440551758,
+	0.0,
+	14.06856632232666,
+	18.6940860748291,
+	0.0,
+	14.06856632232666,
+	18.6940860748291,
+	4.0,
+	13.710273742675781,
+	16.295198440551758,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_12_Srf_0_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_12_Srf_0,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	13.820036888122559,
+	17.030099868774414,
+	1.2254033088684082,
+	13.958803176879883,
+	17.959184646606445,
+	1.2254033088684082,
+	13.958803176879883,
+	17.959184646606445,
+	2.774596691131592,
+	13.820036888122559,
+	17.030099868774414,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_1,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_12,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.06856632232666,
+	18.6940860748291,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.06856632232666,
+	18.6940860748291,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_12,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	0.0,
+	13.710273742675781,
+	16.295198440551758,
+	0.0,
+	13.710273742675781,
+	16.295198440551758,
+	4.0,
+	9.735526084899902,
+	16.888858795166016,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_12_Srf_2_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_12_Srf_2,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.183485984802246,
+	16.821952819824219,
+	0.45080664753913879,
+	13.262312889099121,
+	16.362106323242188,
+	0.45080664753913879,
+	13.262312889099121,
+	16.362106323242188,
+	3.5491933822631836,
+	10.183485984802246,
+	16.821952819824219,
+	3.5491933822631836;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_12,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	9.735526084899902,
+	16.888858795166016,
+	0.0,
+	9.735526084899902,
+	16.888858795166016,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0;
+
+
+FenestrationSurface:Detailed,
+	zone_12_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_12_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	10.243531227111816,
+	20.290128707885742,
+	1.2254033088684082,
+	9.95988655090332,
+	18.391033172607422,
+	1.2254033088684082,
+	9.95988655090332,
+	18.391033172607422,
+	2.774596691131592,
+	10.243531227111816,
+	20.290128707885742,
+	2.774596691131592;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_12,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_2_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_12,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	0.0,
+	10.467892646789551,
+	21.792303085327148,
+	0.0,
+	14.442641258239746,
+	21.198642730712891,
+	0.0,
+	13.710273742675781,
+	16.295198440551758,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_12_Srf_6,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_12,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_1_Srf_6,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	9.735526084899902,
+	16.888858795166016,
+	4.0,
+	13.710273742675781,
+	16.295198440551758,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	10.467892646789551,
+	21.792303085327148,
+	4.0;
+
+
+Zone,
+	zone_13,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_13_Srf_0,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_13,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_4_Srf_8,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	3.0,
+	15.455598831176758,
+	31.493059158325195,
+	4.0,
+	11.993996620178223,
+	32.010078430175781,
+	3.0;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_1,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_13,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	3.0,
+	15.455598831176758,
+	31.493059158325195,
+	4.0,
+	15.833151817321777,
+	34.020896911621094,
+	4.0,
+	12.371548652648926,
+	34.537914276123047,
+	3.0;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_2,	!- Name
+	ROOF,	!- Surface Type
+	Exterior Roof,	!- Construction Name
+	zone_13,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	15.455598831176758,
+	31.493059158325195,
+	4.0,
+	18.917201995849609,
+	30.976041793823242,
+	3.0,
+	19.294754028320312,
+	33.503879547119141,
+	3.0,
+	15.833151817321777,
+	34.020896911621094,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_13,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	12.371548652648926,
+	34.537914276123047,
+	0.0,
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	11.993996620178223,
+	32.010078430175781,
+	3.0,
+	12.371548652648926,
+	34.537914276123047,
+	3.0;
+
+
+FenestrationSurface:Detailed,
+	zone_13_Srf_3_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_13_Srf_3,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	12.255885124206543,
+	33.763507843017578,
+	0.91905248165130615,
+	12.109660148620606,
+	32.784481048583984,
+	0.91905248165130615,
+	12.109660148620606,
+	32.784481048583984,
+	2.0809473991394043,
+	12.255885124206543,
+	33.763507843017578,
+	2.0809473991394043;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_13,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	18.917201995849609,
+	30.976041793823242,
+	0.0,
+	19.294754028320312,
+	33.503879547119141,
+	0.0,
+	19.294754028320312,
+	33.503879547119141,
+	3.0,
+	18.917201995849609,
+	30.976041793823242,
+	3.0;
+
+
+FenestrationSurface:Detailed,
+	zone_13_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_13_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	19.032865524291992,
+	31.750448226928711,
+	0.91905248165130615,
+	19.17909049987793,
+	32.729476928710938,
+	0.91905248165130615,
+	19.17909049987793,
+	32.729476928710938,
+	2.0809473991394043,
+	19.032865524291992,
+	31.750448226928711,
+	2.0809473991394043;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_5,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_13,	!- Zone Name
+	ground,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	11.993996620178223,
+	32.010078430175781,
+	0.0,
+	12.371548652648926,
+	34.537914276123047,
+	0.0,
+	19.294754028320312,
+	33.503879547119141,
+	0.0,
+	18.917201995849609,
+	30.976041793823242,
+	0.0;
+
+
+BuildingSurface:Detailed,
+	zone_13_Srf_6,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_13,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	5,	!- Number of Vertices
+	19.294754028320312,
+	33.503879547119141,
+	0.0,
+	12.371548652648926,
+	34.537914276123047,
+	0.0,
+	12.371548652648926,
+	34.537914276123047,
+	3.0,
+	15.833151817321777,
+	34.020896911621094,
+	4.0,
+	19.294754028320312,
+	33.503879547119141,
+	3.0;
+
+
+FenestrationSurface:Detailed,
+	zone_13_Srf_6_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_13_Srf_6,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.173824310302734,
+	33.820655822753906,
+	0.91905248165130615,
+	14.492478370666504,
+	34.221138000488281,
+	0.91905248165130615,
+	14.492478370666504,
+	34.221138000488281,
+	2.0809473991394043,
+	17.173824310302734,
+	33.820655822753906,
+	2.0809473991394043;
+
+
+FenestrationSurface:Detailed,
+	zone_13_Srf_6_glz_1,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_13_Srf_6,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	3,	!- Number of Vertices
+	17.173824310302734,
+	33.820655822753906,
+	3.2042338848114014,
+	14.492478370666504,
+	34.221138000488281,
+	3.2042338848114014,
+	15.833151817321777,
+	34.020896911621094,
+	3.5915322303771973;
+
+
+Zone,
+	zone_14,
+	0,	!-Direction of Relative North {deg}
+	0.0,	!- X Origin {m}
+	0.0,	!- Y Origin {m}
+	0.0,	!- Z Origin {m}
+	1;	!- Type
+
+BuildingSurface:Detailed,
+	zone_14_Srf_0,	!- Name
+	CEILING,	!- Surface Type
+	Interior Ceiling,	!- Construction Name
+	zone_14,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_0_Srf_9,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_14_Srf_1,	!- Name
+	FLOOR,	!- Surface Type
+	Interior Floor,	!- Construction Name
+	zone_14,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_11_Srf_1,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0;
+
+
+BuildingSurface:Detailed,
+	zone_14_Srf_2,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_14,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_6_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_14_Srf_3,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_14,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_5_Srf_2,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	14.442641258239746,
+	21.198642730712891,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0,
+	14.442641258239746,
+	21.198642730712891,
+	7.0;
+
+
+BuildingSurface:Detailed,
+	zone_14_Srf_4,	!- Name
+	WALL,	!- Surface Type
+	Exterior Wall,	!- Construction Name
+	zone_14,	!- Zone Name
+	Outdoors,	!- Outside Boundary Condition
+	,	!- Outside Boundary Condition Object
+	SunExposed,	!- Sun Exposure
+	WindExposed,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.391098022460938,
+	20.758268356323242,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0,
+	17.391098022460938,
+	20.758268356323242,
+	7.0;
+
+
+FenestrationSurface:Detailed,
+	zone_14_Srf_4_glz_0,	!- Name
+	WINDOW,	!- Surface Type
+	Exterior Window,	!- Construction Name
+	zone_14_Srf_4,	!- Surface Name
+	,	!- Outside Boundary Condition Object
+	autocalculate,	!- View Factor to Ground
+	,	!- Shading Control Name
+	,	!- Frame and Divider Name
+	1,	!- Multiplier
+	4,	!- Number of Vertices
+	17.496589660644531,
+	21.464572906494141,
+	4.919052600860596,
+	17.62995719909668,
+	22.357503890991211,
+	4.919052600860596,
+	17.62995719909668,
+	22.357503890991211,
+	6.080947399139404,
+	17.496589660644531,
+	21.464572906494141,
+	6.080947399139404;
+
+
+BuildingSurface:Detailed,
+	zone_14_Srf_5,	!- Name
+	WALL,	!- Surface Type
+	Interior Wall,	!- Construction Name
+	zone_14,	!- Zone Name
+	SURFACE,	!- Outside Boundary Condition
+	zone_9_Srf_4,	!- Outside Boundary Condition Object
+	NoSun,	!- Sun Exposure
+	NoWind,	!- Wind Exposure
+	autocalculate,	!- View Factor to Ground
+	4,	!- Number of Vertices
+	17.735448837280273,
+	23.063808441162109,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	4.0,
+	14.786991119384766,
+	23.504182815551758,
+	7.0,
+	17.735448837280273,
+	23.063808441162109,
+	7.0;
+
+Construction,
+  EXTERIOR WALL,   !- name
+  M01 100mm brick,   !- - Layer 1
+  M15 200mm heavyweight concrete,   !- - Layer 2
+  I02 50mm insulation board,   !- - Layer 3
+  F04 Wall air space resistance,   !- - Layer 4
+  G01a 19mm gypsum board;   !- - Layer 5
+
+Material,
+  M01 100MM BRICK,   !- name
+  MediumRough,   !- - Roughness
+  0.1016,   !- - Thickness {m}
+  0.89,   !- - Conductivity {W/m-K}
+  1920,   !- - Density {kg/m3}
+  790,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.7,   !- - Solar Absorptance
+  0.7;   !- - Visible Absorptance
+
+Material,
+  M15 200MM HEAVYWEIGHT CONCRETE,   !- name
+  MediumRough,   !- - Roughness
+  0.2032,   !- - Thickness {m}
+  1.95,   !- - Conductivity {W/m-K}
+  2240,   !- - Density {kg/m3}
+  900,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.7,   !- - Solar Absorptance
+  0.7;   !- - Visible Absorptance
+
+Material,
+  I02 50MM INSULATION BOARD,   !- name
+  MediumRough,   !- - Roughness
+  0.0508,   !- - Thickness {m}
+  0.03,   !- - Conductivity {W/m-K}
+  43,   !- - Density {kg/m3}
+  1210,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.7,   !- - Solar Absorptance
+  0.7;   !- - Visible Absorptance
+
+Material:AirGap,
+  F04 WALL AIR SPACE RESISTANCE,   !- name
+  0.15;   !- - Thermal Resistance {m2-K/W}
+
+Material,
+  G01A 19MM GYPSUM BOARD,   !- name
+  MediumSmooth,   !- - Roughness
+  0.019,   !- - Thickness {m}
+  0.16,   !- - Conductivity {W/m-K}
+  800,   !- - Density {kg/m3}
+  1090,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.4,   !- - Solar Absorptance
+  0.4;   !- - Visible Absorptance
+
+Construction,
+  EXTERIOR WINDOW,   !- name
+  Clear 3mm,   !- - Layer 1
+  Air 13mm,   !- - Layer 2
+  Clear 3mm;   !- - Layer 3
+
+WindowMaterial:Glazing,
+  CLEAR 3MM,   !- name
+  SpectralAverage,   !- - Optical Data Type
+  ,   !- - Window Glass Spectral Data Set Name
+  0.00299999999999999,   !- - Thickness {m}
+  0.837,   !- - Solar Transmittance at Normal Incidence
+  0.075,   !- - Front Side Solar Reflectance at Normal Incidence
+  0,   !- - Back Side Solar Reflectance at Normal Incidence
+  0.898,   !- - Visible Transmittance at Normal Incidence
+  0.081,   !- - Front Side Visible Reflectance at Normal Incidence
+  0,   !- - Back Side Visible Reflectance at Normal Incidence
+  0,   !- - Infrared Transmittance at Normal Incidence
+  0.84,   !- - Front Side Infrared Hemispherical Emissivity
+  0.84,   !- - Back Side Infrared Hemispherical Emissivity
+  0.9,   !- - Conductivity {W/m-K}
+  1,   !- - Dirt Correction Factor for Solar and Visible Transmittance
+  No;   !- - Solar Diffusing
+
+WindowMaterial:Gas,
+  AIR 13MM,   !- name
+  Air,   !- - Gas Type
+  0.0127;   !- - Thickness {m}
+
+Construction,
+  EXTERIOR ROOF,   !- name
+  M11 100mm lightweight concrete,   !- - Layer 1
+  F05 Ceiling air space resistance,   !- - Layer 2
+  F16 Acoustic tile;   !- - Layer 3
+
+Material,
+  M11 100MM LIGHTWEIGHT CONCRETE,   !- name
+  MediumRough,   !- - Roughness
+  0.1016,   !- - Thickness {m}
+  0.53,   !- - Conductivity {W/m-K}
+  1280,   !- - Density {kg/m3}
+  840.000000000002,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.5,   !- - Solar Absorptance
+  0.5;   !- - Visible Absorptance
+
+Material:AirGap,
+  F05 CEILING AIR SPACE RESISTANCE,   !- name
+  0.18;   !- - Thermal Resistance {m2-K/W}
+
+Material,
+  F16 ACOUSTIC TILE,   !- name
+  MediumSmooth,   !- - Roughness
+  0.0191,   !- - Thickness {m}
+  0.06,   !- - Conductivity {W/m-K}
+  368,   !- - Density {kg/m3}
+  590.000000000002,   !- - Specific Heat {J/kg-K}
+  0.9,   !- - Thermal Absorptance
+  0.3,   !- - Solar Absorptance
+  0.3;   !- - Visible Absorptance
+
+Construction,
+  INTERIOR WALL,   !- name
+  G01a 19mm gypsum board,   !- - Layer 1
+  F04 Wall air space resistance,   !- - Layer 2
+  G01a 19mm gypsum board;   !- - Layer 3
+
+Construction,
+  INTERIOR FLOOR,   !- name
+  F16 Acoustic tile,   !- - Layer 1
+  F05 Ceiling air space resistance,   !- - Layer 2
+  M11 100mm lightweight concrete;   !- - Layer 3
+
+Construction,
+  INTERIOR CEILING,   !- name
+  M11 100mm lightweight concrete,   !- - Layer 1
+  F05 Ceiling air space resistance,   !- - Layer 2
+  F16 Acoustic tile;   !- - Layer 3
+
+Schedule:Year,
+  MIDRISEAPARTMENT ACTIVITY,   !- name
+  ActivityLevel 1,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {78c76c19-7432-46f1-b258-ac0661c6a983},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT APARTMENT EQUIP,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {8834b73c-ddbc-4355-91db-38c05495cc95},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT APARTMENT HTGSETP,   !- name
+  Temperature 25,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {e95e365f-288e-4290-9db9-58bca6a15f74},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT INFIL,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {aea13f67-aa55-4f8c-b969-1ce3e73aa537},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  ALWAYS ON,   !- name
+  On/Off,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {5be9dc47-719e-453d-a578-cc21f7d349e6},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT APARTMENT OCC,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {dfcaa5b0-c5fd-41a0-a8de-bc57fc225c10},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT APARTMENT LIGHT,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {8e01d304-ffca-49a8-b06f-42e0992d5bc0},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Year,
+  MIDRISEAPARTMENT APARTMENT CLGSETP,   !- name
+  Temperature 18,   !- - Schedule Type Limits Name
+  Schedule:Week:Daily {af08be85-2dc7-45f8-9521-9ac1f8cd06ec},   !- - Schedule:Week Name 1
+  1,   !- - Start Month 1
+  1,   !- - Start Day 1
+  12,   !- - End Month 1
+  31;   !- - End Day 1
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {78C76C19-7432-46F1-B258-AC0661C6A983},   !- name
+  MidriseApartment Activity Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Activity Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Activity Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Activity Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Activity Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {8834B73C-DDBC-4355-91DB-38C05495CC95},   !- name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Apartment Equip Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Apartment Equip Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Apartment Equip Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {E95E365F-288E-4290-9DB9-58BCA6A15F74},   !- name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Apartment HtgSetp Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {AEA13F67-AA55-4F8C-B969-1CE3E73AA537},   !- name
+  MidriseApartment Infil Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Infil Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Infil Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Infil Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Infil Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {5BE9DC47-719E-453D-A578-CC21F7D349E6},   !- name
+  Always On Default Schedule,   !- - Sunday Schedule:Day Name
+  Always On Default Schedule,   !- - Monday Schedule:Day Name
+  Always On Default Schedule,   !- - Tuesday Schedule:Day Name
+  Always On Default Schedule,   !- - Wednesday Schedule:Day Name
+  Always On Default Schedule,   !- - Thursday Schedule:Day Name
+  Always On Default Schedule,   !- - Friday Schedule:Day Name
+  Always On Default Schedule,   !- - Saturday Schedule:Day Name
+  Always On Default Schedule,   !- - Holiday Schedule:Day Name
+  Always On Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  Always On Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  Always On Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  Always On Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {DFCAA5B0-C5FD-41A0-A8DE-BC57FC225C10},   !- name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Apartment Occ Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Apartment Occ Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Apartment Occ Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {8E01D304-FFCA-49A8-B06F-42E0992D5BC0},   !- name
+  MidriseApartment Apartment Light Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Apartment Light Summer Design Day,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Apartment Light Winter Design Day,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Apartment Light Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+  SCHEDULE:WEEK:DAILY {AF08BE85-2DC7-45F8-9521-9AC1F8CD06EC},   !- name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Sunday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Monday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Tuesday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Wednesday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Thursday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Friday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Saturday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - Holiday Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - SummerDesignDay Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - WinterDesignDay Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule,   !- - CustomDay1 Schedule:Day Name
+  MidriseApartment Apartment ClgSetp Default Schedule;   !- - CustomDay2 Schedule:Day Name
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT ACTIVITY DEFAULT SCHEDULE,   !- name
+  ActivityLevel 1,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  120;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT ACTIVITY SUMMER DESIGN DAY,   !- name
+  ActivityLevel 1,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  120;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT ACTIVITY WINTER DESIGN DAY,   !- name
+  ActivityLevel 1,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  120;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT EQUIP DEFAULT SCHEDULE,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  01:00,   !- - Time 1 {hh:mm}
+  0.45,   !- - Value Until Time 1
+  02:00,   !- - Time 2 {hh:mm}
+  0.41,   !- - Value Until Time 2
+  03:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  05:00,   !- - Time 4 {hh:mm}
+  0.38,   !- - Value Until Time 4
+  06:00,   !- - Time 5 {hh:mm}
+  0.43,   !- - Value Until Time 5
+  07:00,   !- - Time 6 {hh:mm}
+  0.54,   !- - Value Until Time 6
+  08:00,   !- - Time 7 {hh:mm}
+  0.65,   !- - Value Until Time 7
+  09:00,   !- - Time 8 {hh:mm}
+  0.66,   !- - Value Until Time 8
+  10:00,   !- - Time 9 {hh:mm}
+  0.67,   !- - Value Until Time 9
+  11:00,   !- - Time 10 {hh:mm}
+  0.69,   !- - Value Until Time 10
+  12:00,   !- - Time 11 {hh:mm}
+  0.7,   !- - Value Until Time 11
+  13:00,   !- - Time 12 {hh:mm}
+  0.69,   !- - Value Until Time 12
+  14:00,   !- - Time 13 {hh:mm}
+  0.66,   !- - Value Until Time 13
+  15:00,   !- - Time 14 {hh:mm}
+  0.65,   !- - Value Until Time 14
+  16:00,   !- - Time 15 {hh:mm}
+  0.68,   !- - Value Until Time 15
+  17:00,   !- - Time 16 {hh:mm}
+  0.8,   !- - Value Until Time 16
+  19:00,   !- - Time 17 {hh:mm}
+  1,   !- - Value Until Time 17
+  20:00,   !- - Time 18 {hh:mm}
+  0.93,   !- - Value Until Time 18
+  21:00,   !- - Time 19 {hh:mm}
+  0.89,   !- - Value Until Time 19
+  22:00,   !- - Time 20 {hh:mm}
+  0.85,   !- - Value Until Time 20
+  23:00,   !- - Time 21 {hh:mm}
+  0.71,   !- - Value Until Time 21
+  24:00,   !- - Time 22 {hh:mm}
+  0.58;   !- - Value Until Time 22
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT EQUIP SUMMER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  01:00,   !- - Time 1 {hh:mm}
+  0.45,   !- - Value Until Time 1
+  02:00,   !- - Time 2 {hh:mm}
+  0.41,   !- - Value Until Time 2
+  03:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  05:00,   !- - Time 4 {hh:mm}
+  0.38,   !- - Value Until Time 4
+  06:00,   !- - Time 5 {hh:mm}
+  0.43,   !- - Value Until Time 5
+  07:00,   !- - Time 6 {hh:mm}
+  0.54,   !- - Value Until Time 6
+  08:00,   !- - Time 7 {hh:mm}
+  0.65,   !- - Value Until Time 7
+  09:00,   !- - Time 8 {hh:mm}
+  0.66,   !- - Value Until Time 8
+  10:00,   !- - Time 9 {hh:mm}
+  0.67,   !- - Value Until Time 9
+  11:00,   !- - Time 10 {hh:mm}
+  0.69,   !- - Value Until Time 10
+  12:00,   !- - Time 11 {hh:mm}
+  0.7,   !- - Value Until Time 11
+  13:00,   !- - Time 12 {hh:mm}
+  0.69,   !- - Value Until Time 12
+  14:00,   !- - Time 13 {hh:mm}
+  0.66,   !- - Value Until Time 13
+  15:00,   !- - Time 14 {hh:mm}
+  0.65,   !- - Value Until Time 14
+  16:00,   !- - Time 15 {hh:mm}
+  0.68,   !- - Value Until Time 15
+  17:00,   !- - Time 16 {hh:mm}
+  0.8,   !- - Value Until Time 16
+  19:00,   !- - Time 17 {hh:mm}
+  1,   !- - Value Until Time 17
+  20:00,   !- - Time 18 {hh:mm}
+  0.93,   !- - Value Until Time 18
+  21:00,   !- - Time 19 {hh:mm}
+  0.89,   !- - Value Until Time 19
+  22:00,   !- - Time 20 {hh:mm}
+  0.85,   !- - Value Until Time 20
+  23:00,   !- - Time 21 {hh:mm}
+  0.71,   !- - Value Until Time 21
+  24:00,   !- - Time 22 {hh:mm}
+  0.58;   !- - Value Until Time 22
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT EQUIP WINTER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  01:00,   !- - Time 1 {hh:mm}
+  0.45,   !- - Value Until Time 1
+  02:00,   !- - Time 2 {hh:mm}
+  0.41,   !- - Value Until Time 2
+  03:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  05:00,   !- - Time 4 {hh:mm}
+  0.38,   !- - Value Until Time 4
+  06:00,   !- - Time 5 {hh:mm}
+  0.43,   !- - Value Until Time 5
+  07:00,   !- - Time 6 {hh:mm}
+  0.54,   !- - Value Until Time 6
+  08:00,   !- - Time 7 {hh:mm}
+  0.65,   !- - Value Until Time 7
+  09:00,   !- - Time 8 {hh:mm}
+  0.66,   !- - Value Until Time 8
+  10:00,   !- - Time 9 {hh:mm}
+  0.67,   !- - Value Until Time 9
+  11:00,   !- - Time 10 {hh:mm}
+  0.69,   !- - Value Until Time 10
+  12:00,   !- - Time 11 {hh:mm}
+  0.7,   !- - Value Until Time 11
+  13:00,   !- - Time 12 {hh:mm}
+  0.69,   !- - Value Until Time 12
+  14:00,   !- - Time 13 {hh:mm}
+  0.66,   !- - Value Until Time 13
+  15:00,   !- - Time 14 {hh:mm}
+  0.65,   !- - Value Until Time 14
+  16:00,   !- - Time 15 {hh:mm}
+  0.68,   !- - Value Until Time 15
+  17:00,   !- - Time 16 {hh:mm}
+  0.8,   !- - Value Until Time 16
+  19:00,   !- - Time 17 {hh:mm}
+  1,   !- - Value Until Time 17
+  20:00,   !- - Time 18 {hh:mm}
+  0.93,   !- - Value Until Time 18
+  21:00,   !- - Time 19 {hh:mm}
+  0.89,   !- - Value Until Time 19
+  22:00,   !- - Time 20 {hh:mm}
+  0.85,   !- - Value Until Time 20
+  23:00,   !- - Time 21 {hh:mm}
+  0.71,   !- - Value Until Time 21
+  24:00,   !- - Time 22 {hh:mm}
+  0.58;   !- - Value Until Time 22
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT HTGSETP DEFAULT SCHEDULE,   !- name
+  Temperature 25,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  20;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT INFIL DEFAULT SCHEDULE,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT INFIL SUMMER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT INFIL WINTER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  ALWAYS ON DEFAULT SCHEDULE,   !- name
+  On/Off,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  ALWAYS ON SUMMER DESIGN DAY,   !- name
+  On/Off,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  ALWAYS ON WINTER DESIGN DAY,   !- name
+  On/Off,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  1;   !- - Value Until Time 1
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT OCC DEFAULT SCHEDULE,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  07:00,   !- - Time 1 {hh:mm}
+  1,   !- - Value Until Time 1
+  08:00,   !- - Time 2 {hh:mm}
+  0.85,   !- - Value Until Time 2
+  09:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  16:00,   !- - Time 4 {hh:mm}
+  0.25,   !- - Value Until Time 4
+  17:00,   !- - Time 5 {hh:mm}
+  0.3,   !- - Value Until Time 5
+  18:00,   !- - Time 6 {hh:mm}
+  0.52,   !- - Value Until Time 6
+  21:00,   !- - Time 7 {hh:mm}
+  0.87,   !- - Value Until Time 7
+  24:00,   !- - Time 8 {hh:mm}
+  1;   !- - Value Until Time 8
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT OCC SUMMER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  07:00,   !- - Time 1 {hh:mm}
+  1,   !- - Value Until Time 1
+  08:00,   !- - Time 2 {hh:mm}
+  0.85,   !- - Value Until Time 2
+  09:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  16:00,   !- - Time 4 {hh:mm}
+  0.25,   !- - Value Until Time 4
+  17:00,   !- - Time 5 {hh:mm}
+  0.3,   !- - Value Until Time 5
+  18:00,   !- - Time 6 {hh:mm}
+  0.52,   !- - Value Until Time 6
+  21:00,   !- - Time 7 {hh:mm}
+  0.87,   !- - Value Until Time 7
+  24:00,   !- - Time 8 {hh:mm}
+  1;   !- - Value Until Time 8
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT OCC WINTER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  07:00,   !- - Time 1 {hh:mm}
+  1,   !- - Value Until Time 1
+  08:00,   !- - Time 2 {hh:mm}
+  0.85,   !- - Value Until Time 2
+  09:00,   !- - Time 3 {hh:mm}
+  0.39,   !- - Value Until Time 3
+  16:00,   !- - Time 4 {hh:mm}
+  0.25,   !- - Value Until Time 4
+  17:00,   !- - Time 5 {hh:mm}
+  0.3,   !- - Value Until Time 5
+  18:00,   !- - Time 6 {hh:mm}
+  0.52,   !- - Value Until Time 6
+  21:00,   !- - Time 7 {hh:mm}
+  0.87,   !- - Value Until Time 7
+  24:00,   !- - Time 8 {hh:mm}
+  1;   !- - Value Until Time 8
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT LIGHT DEFAULT SCHEDULE,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  04:00,   !- - Time 1 {hh:mm}
+  0.067,   !- - Value Until Time 1
+  05:00,   !- - Time 2 {hh:mm}
+  0.187,   !- - Value Until Time 2
+  06:00,   !- - Time 3 {hh:mm}
+  0.394,   !- - Value Until Time 3
+  07:00,   !- - Time 4 {hh:mm}
+  0.44,   !- - Value Until Time 4
+  08:00,   !- - Time 5 {hh:mm}
+  0.393,   !- - Value Until Time 5
+  09:00,   !- - Time 6 {hh:mm}
+  0.172,   !- - Value Until Time 6
+  15:00,   !- - Time 7 {hh:mm}
+  0.119,   !- - Value Until Time 7
+  16:00,   !- - Time 8 {hh:mm}
+  0.206,   !- - Value Until Time 8
+  17:00,   !- - Time 9 {hh:mm}
+  0.439,   !- - Value Until Time 9
+  18:00,   !- - Time 10 {hh:mm}
+  0.616,   !- - Value Until Time 10
+  19:00,   !- - Time 11 {hh:mm}
+  0.829,   !- - Value Until Time 11
+  20:00,   !- - Time 12 {hh:mm}
+  0.986,   !- - Value Until Time 12
+  21:00,   !- - Time 13 {hh:mm}
+  1,   !- - Value Until Time 13
+  22:00,   !- - Time 14 {hh:mm}
+  0.692,   !- - Value Until Time 14
+  23:00,   !- - Time 15 {hh:mm}
+  0.384,   !- - Value Until Time 15
+  24:00,   !- - Time 16 {hh:mm}
+  0.16;   !- - Value Until Time 16
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT LIGHT SUMMER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  04:00,   !- - Time 1 {hh:mm}
+  0.067,   !- - Value Until Time 1
+  05:00,   !- - Time 2 {hh:mm}
+  0.187,   !- - Value Until Time 2
+  06:00,   !- - Time 3 {hh:mm}
+  0.394,   !- - Value Until Time 3
+  07:00,   !- - Time 4 {hh:mm}
+  0.44,   !- - Value Until Time 4
+  08:00,   !- - Time 5 {hh:mm}
+  0.393,   !- - Value Until Time 5
+  09:00,   !- - Time 6 {hh:mm}
+  0.172,   !- - Value Until Time 6
+  15:00,   !- - Time 7 {hh:mm}
+  0.119,   !- - Value Until Time 7
+  16:00,   !- - Time 8 {hh:mm}
+  0.206,   !- - Value Until Time 8
+  17:00,   !- - Time 9 {hh:mm}
+  0.439,   !- - Value Until Time 9
+  18:00,   !- - Time 10 {hh:mm}
+  0.616,   !- - Value Until Time 10
+  19:00,   !- - Time 11 {hh:mm}
+  0.829,   !- - Value Until Time 11
+  20:00,   !- - Time 12 {hh:mm}
+  0.986,   !- - Value Until Time 12
+  21:00,   !- - Time 13 {hh:mm}
+  1,   !- - Value Until Time 13
+  22:00,   !- - Time 14 {hh:mm}
+  0.692,   !- - Value Until Time 14
+  23:00,   !- - Time 15 {hh:mm}
+  0.384,   !- - Value Until Time 15
+  24:00,   !- - Time 16 {hh:mm}
+  0.16;   !- - Value Until Time 16
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT LIGHT WINTER DESIGN DAY,   !- name
+  Fraction,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  04:00,   !- - Time 1 {hh:mm}
+  0.067,   !- - Value Until Time 1
+  05:00,   !- - Time 2 {hh:mm}
+  0.187,   !- - Value Until Time 2
+  06:00,   !- - Time 3 {hh:mm}
+  0.394,   !- - Value Until Time 3
+  07:00,   !- - Time 4 {hh:mm}
+  0.44,   !- - Value Until Time 4
+  08:00,   !- - Time 5 {hh:mm}
+  0.393,   !- - Value Until Time 5
+  09:00,   !- - Time 6 {hh:mm}
+  0.172,   !- - Value Until Time 6
+  15:00,   !- - Time 7 {hh:mm}
+  0.119,   !- - Value Until Time 7
+  16:00,   !- - Time 8 {hh:mm}
+  0.206,   !- - Value Until Time 8
+  17:00,   !- - Time 9 {hh:mm}
+  0.439,   !- - Value Until Time 9
+  18:00,   !- - Time 10 {hh:mm}
+  0.616,   !- - Value Until Time 10
+  19:00,   !- - Time 11 {hh:mm}
+  0.829,   !- - Value Until Time 11
+  20:00,   !- - Time 12 {hh:mm}
+  0.986,   !- - Value Until Time 12
+  21:00,   !- - Time 13 {hh:mm}
+  1,   !- - Value Until Time 13
+  22:00,   !- - Time 14 {hh:mm}
+  0.692,   !- - Value Until Time 14
+  23:00,   !- - Time 15 {hh:mm}
+  0.384,   !- - Value Until Time 15
+  24:00,   !- - Time 16 {hh:mm}
+  0.16;   !- - Value Until Time 16
+
+Schedule:Day:Interval,
+  MIDRISEAPARTMENT APARTMENT CLGSETP DEFAULT SCHEDULE,   !- name
+  Temperature 18,   !- - Schedule Type Limits Name
+  No,   !- - Interpolate to Timestep
+  24:00,   !- - Time 1 {hh:mm}
+  25.5;   !- - Value Until Time 1
+
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_0,	!- Zone Name
+	zone_0_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_0,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_0_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_0ElectricEquipment,  !- Name
+	zone_0,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_0OfficePeople,  !- Name
+	zone_0,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_0OfficeLights,  !- Name
+	zone_0,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_0_Infiltration,  !- Name
+	zone_0,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_0, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_1,	!- Zone Name
+	zone_1_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_1,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_1_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_1ElectricEquipment,  !- Name
+	zone_1,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_1OfficePeople,  !- Name
+	zone_1,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_1OfficeLights,  !- Name
+	zone_1,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_1_Infiltration,  !- Name
+	zone_1,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_1, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_2,	!- Zone Name
+	zone_2_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_2,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_2_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_2ElectricEquipment,  !- Name
+	zone_2,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_2OfficePeople,  !- Name
+	zone_2,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_2OfficeLights,  !- Name
+	zone_2,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_2_Infiltration,  !- Name
+	zone_2,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_2, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_3,	!- Zone Name
+	zone_3_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_3,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_3_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_3ElectricEquipment,  !- Name
+	zone_3,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_3OfficePeople,  !- Name
+	zone_3,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_3OfficeLights,  !- Name
+	zone_3,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_3_Infiltration,  !- Name
+	zone_3,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_3, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_4,	!- Zone Name
+	zone_4_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_4,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_4_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_4ElectricEquipment,  !- Name
+	zone_4,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_4OfficePeople,  !- Name
+	zone_4,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_4OfficeLights,  !- Name
+	zone_4,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_4_Infiltration,  !- Name
+	zone_4,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_4, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_5,	!- Zone Name
+	zone_5_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_5,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_5_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_5ElectricEquipment,  !- Name
+	zone_5,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_5OfficePeople,  !- Name
+	zone_5,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_5OfficeLights,  !- Name
+	zone_5,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_5_Infiltration,  !- Name
+	zone_5,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_5, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_6,	!- Zone Name
+	zone_6_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_6,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_6_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_6ElectricEquipment,  !- Name
+	zone_6,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_6OfficePeople,  !- Name
+	zone_6,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_6OfficeLights,  !- Name
+	zone_6,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_6_Infiltration,  !- Name
+	zone_6,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_6, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_7,	!- Zone Name
+	zone_7_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_7,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_7_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_7ElectricEquipment,  !- Name
+	zone_7,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_7OfficePeople,  !- Name
+	zone_7,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_7OfficeLights,  !- Name
+	zone_7,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_7_Infiltration,  !- Name
+	zone_7,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_7, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_8,	!- Zone Name
+	zone_8_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_8,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_8_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_8ElectricEquipment,  !- Name
+	zone_8,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_8OfficePeople,  !- Name
+	zone_8,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_8OfficeLights,  !- Name
+	zone_8,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_8_Infiltration,  !- Name
+	zone_8,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_8, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_9,	!- Zone Name
+	zone_9_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_9,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_9_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_9ElectricEquipment,  !- Name
+	zone_9,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_9OfficePeople,  !- Name
+	zone_9,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_9OfficeLights,  !- Name
+	zone_9,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_9_Infiltration,  !- Name
+	zone_9,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_9, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_10,	!- Zone Name
+	zone_10_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_10,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_10_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_10ElectricEquipment,  !- Name
+	zone_10,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_10OfficePeople,  !- Name
+	zone_10,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_10OfficeLights,  !- Name
+	zone_10,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_10_Infiltration,  !- Name
+	zone_10,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_10, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_11,	!- Zone Name
+	zone_11_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_11,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_11_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_11ElectricEquipment,  !- Name
+	zone_11,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_11OfficePeople,  !- Name
+	zone_11,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_11OfficeLights,  !- Name
+	zone_11,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_11_Infiltration,  !- Name
+	zone_11,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_11, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_12,	!- Zone Name
+	zone_12_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_12,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_12_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_12ElectricEquipment,  !- Name
+	zone_12,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_12OfficePeople,  !- Name
+	zone_12,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_12OfficeLights,  !- Name
+	zone_12,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_12_Infiltration,  !- Name
+	zone_12,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_12, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_13,	!- Zone Name
+	zone_13_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_13,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_13_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_13ElectricEquipment,  !- Name
+	zone_13,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_13OfficePeople,  !- Name
+	zone_13,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_13OfficeLights,  !- Name
+	zone_13,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_13_Infiltration,  !- Name
+	zone_13,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_13, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+HVACTemplate:Zone:IdealLoadsAirSystem,
+	zone_14,	!- Zone Name
+	zone_14_HVAC,	!- Template Thermostat Name
+	,  !- Availability Schedule Name
+	50,  !- Heating Supply Air Temp {C}
+	13,  !- Cooling Supply Air Temp {C}
+	,  !- Max Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
+	,  !- Min Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+	NoLimit,  !- Heating Limit
+	,  !- Maximum Heating Air Flow Rate {m3/s}
+	,  !- Maximum Sensible Heat Capacity
+	NoLimit,  !- Cooling Limit
+	,  !- Maximum Cooling Air Flow Rate {m3/s}
+	,  !- Maximum Total Cooling Capacity
+	,  !- Heating Availability Schedule
+	,  !- Cooling Availability Schedule
+	,  !- Dehumidification Control Type
+	,  !- Cooling Sensible Heat Ratio
+	,  !- Dehumidification Setpoint
+	None,  !- Humidification Control Type
+	,  !- Humidification Setpoint
+	DetailedSpecification,  !- Outdoor Air Method
+	,  !- Outdoor Air Flow Rate Per Person
+	,  !- Outdoor Air Flow Rate Per Floor Zone Area
+	,  !- Outdoor Air Flow Rate Per Zone
+	DSOAzone_14,  !- Design Specification Outdoor Air Object Name
+	,  !- Demand Controlled Ventilation Type
+	,  !- Outdoor Air Economizer Type
+	,  !- Heat Recovery Type
+	,  !- Seneible Heat Recovery Effectiveness
+	;  !- Latent Heat Recovery Effectiveness
+
+HVACTemplate:Thermostat,
+	zone_14_HVAC,                    !- Name
+	MidriseApartment Apartment HtgSetp,          !- Heating Setpoint Schedule Name
+	'', !- Constant Heating Setpoint {C}
+	MidriseApartment Apartment ClgSetp,          !- Cooling Setpoint Schedule Name
+	''; !- Constant Cooling Setpoint {C}
+
+ElectricEquipment,
+	zone_14ElectricEquipment,  !- Name
+	zone_14,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Equip,  !- Schedule Name
+	Watts/Area, !- Design Level Calculation Method
+	, !- Design Level {W}
+	3.8750276284180134, !- Watts per Zone Floor Area {W/m2}
+	,   !- Watts per Person {W/person}
+	,                        !- Fraction Latent
+	,                        !- Fraction Radiant
+	,                        !- Fraction Lost
+	ElectricEquipment;       !- End-Use Subcategory
+
+People,
+	zone_14OfficePeople,  !- Name
+	zone_14,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Occ,  !- Number of People Schedule Name
+	People/Area, !- Number of People Calculation Method
+	, !- Number of People
+	0.028309217430000002,  !- People per Zone Floor Area {person/m2}
+	,  !- Zone Floor Area per Person {m2/person}
+	0.29999999999999999,     !- Fraction Radiant
+	autocalculate,!- Sensible Heat Fraction
+	MidriseApartment Activity;!- Activity Level Schedule Name
+
+Lights,
+	zone_14OfficeLights,  !- Name
+	zone_14,  !- Zone or ZoneList Name
+	MidriseApartment Apartment Light,  !- Schedule Name
+	Watts/Area,       !- Design Level Calculation Method
+	,       !- Lighting Level {W}
+	11.8403571,       !- Watts per Zone Floor Area {W/m2}
+	,         !- Watts per Person {W/person}
+	,                       !- Return Air Fraction
+	,                       !- Fraction Radiant
+	;                       !- Fraction Visible
+
+ZoneInfiltration:DesignFlowRate,
+	zone_14_Infiltration,  !- Name
+	zone_14,  !- Zone or ZoneList Name
+	MidriseApartment Infil,  !- Schedule Name
+	Flow/Area,  !- Design Flow Rate Calculation Method
+	,   !- Design Flow Rate {m3/s}
+	0.00022656844600000002,  !- Flow per Zone Floor Area {m3/s-m2}
+	, !- Flow per Exterior Surface Area {m3/s-m2}
+	,    !- Air Changes per Hour
+	,                        !- Constant Term Coefficient
+	,                        !- Temperature Term Coefficient
+	,                        !- Velocity Term Coefficient
+	;                        !- Velocity Squared Term Coefficient
+
+DesignSpecification:OutdoorAir,
+	DSOAzone_14, !- Name
+	Maximum, !- Outdoor Air Method
+	0.0, !- Outdoor Air Flow per Person {m3/s-person}
+	0.0, !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+	0.0; !- Outdoor Air Flow per Zone {m3/s}
+Output:Surfaces:List,
+	Details;                 !- Report Type
+
+Output:VariableDictionary,
+	regular;                 !- Key Field
+
+OutputControl:Table:Style,Comma;
+Output:Variable,*,Zone Ideal Loads Zone Total Cooling Energy, hourly;
+Output:Variable,*,Zone Ideal Loads Zone Total Heating Energy, hourly;
+Output:Variable,*,Zone Packaged Terminal Heat Pump Total Cooling Energy, hourly;
+Output:Variable,*,Zone Packaged Terminal Heat Pump Total Heating Energy, hourly;
+Output:Variable,*,Chiller Electric Energy, hourly;
+Output:Variable,*,Boiler Heating Energy, hourly;
+Output:Variable,*,Fan Electric Energy, hourly;
+Output:Variable,*,Zone Ventilation Fan Electric Energy, hourly;
+Output:Variable,*,Zone Lights Electric Energy, hourly;
+Output:Variable,*,Zone Electric Equipment Electric Energy, hourly;
+Output:Variable,*,Zone Operative Temperature, hourly;
+Output:Variable,*,Zone Mean Air Temperature, hourly;
+Output:Variable,*,Zone Mean Radiant Temperature, hourly;
+Output:Variable,*,Zone Air Relative Humidity, hourly;
+Output:Variable,*,Zone Ventilation Standard Density Volume Flow Rate, hourly;
+Output:Variable,*,Zone Infiltration Standard Density Volume Flow Rate, hourly;
+Output:Variable,*,Zone Air Heat Balance Internal Convective Heat Gain Rate, hourly;
+Output:Variable,*,Zone Air Heat Balance Surface Convection Rate, hourly;
+Output:Variable,*,Zone Air Heat Balance System Air Transfer Rate, hourly;
+Output:Variable,*,Surface Outside Face Temperature, hourly;
+Output:Variable,*,Surface Inside Face Temperature, hourly;
