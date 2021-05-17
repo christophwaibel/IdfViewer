@@ -6,6 +6,6 @@ Repo not cleaned up and code not yet working. Several years old and I have no id
 
 ## Some GIFs
 
-![gif1](https://github.com/christophwaibel/IDF_Viewer/blob/master/IDF_Viewer_House.gif "Chris Mackey house")
+![gif1](https://github.com/christophwaibel/IdfViewer/blob/master/IDF_Viewer_House.gif "Chris Mackey house")
 
-![gif2](https://github.com/christophwaibel/IDF_Viewer/blob/master/IDF_Viewer_Pareto.gif "Pareto front example")
+![gif2](https://github.com/christophwaibel/IdfViewer/blob/master/IDF_Viewer_Pareto.gif "Pareto front example")
