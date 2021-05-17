@@ -1,4 +1,4 @@
-# IDF_Viewer
+# Idf Viewer
 IDF Viewer to view geometries of idf files from EnergyPlus!
 
 ## Using it 
