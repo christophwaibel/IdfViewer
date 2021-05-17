@@ -6,8 +6,7 @@ Repo not cleaned up and code not yet working. Several years old and I have no id
 
 ## Some Gifs
 
-![](https://github.com/christophwaibel/IdfViewer/blob/main/IDF_Viewer_House.gif "Chris Mackey house")
-**Chris Mackey's house from his ladybug honeybee tutorials on Youtube**
+![Chris Mackey's house from his ladybug honeybee tutorials on Youtube](https://github.com/christophwaibel/IdfViewer/blob/main/IDF_Viewer_House.gif "Chris Mackey house")
 
 
-![](https://github.com/christophwaibel/IdfViewer/blob/main/IDF_Viewer_Pareto.gif "Pareto front example")
+![Pareto front example](https://github.com/christophwaibel/IdfViewer/blob/main/IDF_Viewer_Pareto.gif "Pareto front example")
